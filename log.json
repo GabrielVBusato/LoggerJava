@@ -1,33 +1,25 @@
 [ {
   "type" : "ERROR",
-  "contactName" : "Mauricio",
-  "currentDate" : "08/12/23",
-  "currentHour" : "23:31:55",
-  "adminUsername" : "Paulo",
-  "message" : "Adicionar usuário: Mauricio, (08/12/23, 23:31:55, e Paulo)",
-  "operation" : "adicionar usuário"
-}, {
-  "type" : "INFO",
-  "contactName" : "Mauricio",
-  "currentDate" : "08/12/23",
-  "currentHour" : "23:31:55",
-  "adminUsername" : "Paulo",
-  "message" : "Ocorreu a falha {usuário já cadastrado} ao realizar a operação {adicionar usuário} do contato Mauricio, (08/12/23, 23:31:55, e Paulo)",
-  "operation" : "adicionar usuário"
+  "contactName" : null,
+  "currentDate" : "09/12/23",
+  "currentHour" : "16:18:09",
+  "adminUsername" : null,
+  "message" : "null: null, (09/12/23, 16:18:09, e null)",
+  "operation" : null
 }, {
   "type" : "ERROR",
   "contactName" : "Mauricio",
-  "currentDate" : "08/12/23",
-  "currentHour" : "23:53:00",
-  "adminUsername" : "Paulo",
-  "message" : "Adicionar usuário: Mauricio, (08/12/23, 23:53:00, e Paulo)",
-  "operation" : "adicionar usuário"
+  "currentDate" : "09/12/23",
+  "currentHour" : "16:18:09",
+  "adminUsername" : null,
+  "message" : "null: Mauricio, (09/12/23, 16:18:09, e null)",
+  "operation" : null
 }, {
   "type" : "INFO",
   "contactName" : "Mauricio",
-  "currentDate" : "08/12/23",
-  "currentHour" : "23:53:00",
-  "adminUsername" : "Paulo",
-  "message" : "Ocorreu a falha {usuário já cadastrado} ao realizar a operação {adicionar usuário} do contato Mauricio, (08/12/23, 23:53:00, e Paulo)",
-  "operation" : "adicionar usuário"
+  "currentDate" : "09/12/23",
+  "currentHour" : "16:18:09",
+  "adminUsername" : null,
+  "message" : "Ocorreu a falha {Error} ao realizar a operação {null} do contato Mauricio, (09/12/23, 16:18:09, e null)",
+  "operation" : null
 } ]

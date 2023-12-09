@@ -20,28 +20,33 @@ import java.util.Arrays;
  */
 public class LogService {
 
-    private final LogDirector director;
+    private LogDirector director;
     private static FileTypeEnum fileType;
 
-    public LogService(
-            LogDirector director) {
-        this.director = director;
-        fileType = Enum.valueOf(FileTypeEnum.class, 
-                Dotenv.load().get("LOG_FILE_TYPE"));
+    public LogService() {
+        if (fileType == null) {
+            Enum.valueOf(FileTypeEnum.class,
+                    Dotenv.load().get("LOG_FILE_TYPE"));
+        }
     }
-    
-    public void setFileType(FileTypeEnum fileType){
+
+    public void setDirector(LogDirector director) {
+        this.director = director;
+    }
+
+    public void setFileType(FileTypeEnum fileType) {
         System.setProperty("LOG_FILE_TYPE", fileType.name());
         LogService.fileType = fileType;
     }
 
-    public static void writeExceptionFileLog(Exception ex) {
+    public void writeExceptionFileLog() {
         try {
-            LogBuilder exceptionLoggerBuilder = new LogExceptionBuilder();
-            LogDirector directorException = new LogDirector(ex.getMessage() + ". StackTrace:" + Arrays.toString(ex.getStackTrace()));
-            directorException.constructExceptionLogger(exceptionLoggerBuilder);
-            LogAdapter logger = LogFactory.createrLogger(fileType, "exceptions");
-            logger.write(exceptionLoggerBuilder.getLog());
+            if (director != null) {
+                LogBuilder exceptionLoggerBuilder = new LogExceptionBuilder();
+                director.constructExceptionLogger(exceptionLoggerBuilder);
+                LogAdapter logger = LogFactory.createrLogger(fileType, "exceptions");
+                logger.write(exceptionLoggerBuilder.getLog());
+            }
         } catch (Exception expt) {
             System.out.println(expt.getMessage());
         }
@@ -51,11 +56,14 @@ public class LogService {
             LogTypeEnum type,
             LogBuilder builder) {
         try {
-            director.constructLogger(builder, type);
-            LogAdapter logger = LogFactory.createrLogger(fileType, "log");
-            logger.write(builder.getLog());
+            if (director != null) {
+                director.constructLogger(builder, type);
+                LogAdapter logger = LogFactory.createrLogger(fileType, "log");
+                logger.write(builder.getLog());
+            }
         } catch (Exception ex) {
-            writeExceptionFileLog(ex);
+            director = new LogDirector(ex.getMessage() + ". StackTrace:" + Arrays.toString(ex.getStackTrace()));
+            writeExceptionFileLog();
         }
     }
 }

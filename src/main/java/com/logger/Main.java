@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
-
 package com.logger;
 
 import com.logger.business.log.logTypes.LogBuilder;
@@ -24,18 +23,23 @@ public class Main {
             LogBuilder errorLogger = new LogErrorBuilder();
             LogBuilder infoLogger = new LogInfoBuilder();
 
-            LogDirector director = new LogDirector("Paulo",
-                    "usuário já cadastrado", "Gabriel", "adicionar usuário");
+            LogDirector director = new LogDirector("Error");
 
-            LogService service = new LogService(director);
-            service.writeSystemLogFile(LogTypeEnum.ERROR, infoLogger);
-            
+            LogService service = new LogService();
+            service.setFileType(FileTypeEnum.CSV);
+            service.setDirector(director);
+            service.writeExceptionFileLog();
             service.setFileType(FileTypeEnum.JSON);
 
-            director.setContactName("Mauricio");            
             
-            service.writeSystemLogFile(LogTypeEnum.ERROR, infoLogger);
-            service.writeSystemLogFile(LogTypeEnum.INFO, errorLogger);
+            LogService service2 = new LogService();
+            service2.setDirector(director);
+            service2.writeSystemLogFile(LogTypeEnum.ERROR, infoLogger);
+
+            director.setContactName("Mauricio");
+
+            service2.writeSystemLogFile(LogTypeEnum.ERROR, infoLogger);
+            service2.writeSystemLogFile(LogTypeEnum.INFO, errorLogger);
         } catch (Exception ex) {
             System.out.println(ex);
         }

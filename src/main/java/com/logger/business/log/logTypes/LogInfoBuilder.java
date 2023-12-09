@@ -11,19 +11,21 @@ import com.logger.models.LogRegister;
  * @author busat
  */
 public class LogInfoBuilder extends LogBuilder {
-    
+
     private String formatedOperation;
-    
+
     @Override
     public void formatMessage() {
         this.message = formatedOperation + ": " + contactName + ", "
                 + "(" + currentDate + ", " + currentHour + ", e " + adminUsername + ")";
     }
-    
+
     @Override
-    public void setOperation(String operation){
+    public void setOperation(String operation) {
         super.setOperation(operation);
-        this.formatedOperation = operation.substring(0,1).toUpperCase() + operation.substring(1);
+        if (operation != null) {
+            this.formatedOperation = operation.substring(0, 1).toUpperCase() + operation.substring(1);
+        }
     }
 
     @Override
