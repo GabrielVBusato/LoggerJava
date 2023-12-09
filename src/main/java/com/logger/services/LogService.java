@@ -23,13 +23,6 @@ public class LogService {
     private LogDirector director;
     private static FileTypeEnum fileType;
 
-    public LogService() {
-        if (fileType == null) {
-            Enum.valueOf(FileTypeEnum.class,
-                    Dotenv.load().get("LOG_FILE_TYPE"));
-        }
-    }
-
     public void setDirector(LogDirector director) {
         this.director = director;
     }
@@ -41,7 +34,7 @@ public class LogService {
 
     public void writeExceptionFileLog() {
         try {
-            if (director != null) {
+            if (director != null && fileType != null) {
                 LogBuilder exceptionLoggerBuilder = new LogExceptionBuilder();
                 director.constructExceptionLogger(exceptionLoggerBuilder);
                 LogAdapter logger = LogFactory.createrLogger(fileType, "exceptions");
@@ -56,12 +49,13 @@ public class LogService {
             LogTypeEnum type,
             LogBuilder builder) {
         try {
-            if (director != null) {
+            if (director != null && fileType != null) {
                 director.constructLogger(builder, type);
                 LogAdapter logger = LogFactory.createrLogger(fileType, "log");
                 logger.write(builder.getLog());
             }
         } catch (Exception ex) {
+            System.out.println(ex.getMessage());
             director = new LogDirector(ex.getMessage() + ". StackTrace:" + Arrays.toString(ex.getStackTrace()));
             writeExceptionFileLog();
         }

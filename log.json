@@ -2,24 +2,24 @@
   "type" : "ERROR",
   "contactName" : null,
   "currentDate" : "09/12/23",
-  "currentHour" : "16:18:09",
+  "currentHour" : "20:07:52",
   "adminUsername" : null,
-  "message" : "null: null, (09/12/23, 16:18:09, e null)",
+  "message" : "null: null, (09/12/23, 20:07:52, e null)",
   "operation" : null
 }, {
   "type" : "ERROR",
   "contactName" : "Mauricio",
   "currentDate" : "09/12/23",
-  "currentHour" : "16:18:09",
+  "currentHour" : "20:07:52",
   "adminUsername" : null,
-  "message" : "null: Mauricio, (09/12/23, 16:18:09, e null)",
+  "message" : "null: Mauricio, (09/12/23, 20:07:52, e null)",
   "operation" : null
 }, {
   "type" : "INFO",
   "contactName" : "Mauricio",
   "currentDate" : "09/12/23",
-  "currentHour" : "16:18:09",
+  "currentHour" : "20:07:52",
   "adminUsername" : null,
-  "message" : "Ocorreu a falha {Error} ao realizar a operação {null} do contato Mauricio, (09/12/23, 16:18:09, e null)",
+  "message" : "Ocorreu a falha {Error} ao realizar a operação {null} do contato Mauricio, (09/12/23, 20:07:52, e null)",
   "operation" : null
 } ]
