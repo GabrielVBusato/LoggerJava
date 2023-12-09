@@ -14,4 +14,20 @@
   "adminUsername" : "Paulo",
   "message" : "Ocorreu a falha {usuário já cadastrado} ao realizar a operação {adicionar usuário} do contato Mauricio, (08/12/23, 23:31:55, e Paulo)",
   "operation" : "adicionar usuário"
+}, {
+  "type" : "ERROR",
+  "contactName" : "Mauricio",
+  "currentDate" : "08/12/23",
+  "currentHour" : "23:53:00",
+  "adminUsername" : "Paulo",
+  "message" : "Adicionar usuário: Mauricio, (08/12/23, 23:53:00, e Paulo)",
+  "operation" : "adicionar usuário"
+}, {
+  "type" : "INFO",
+  "contactName" : "Mauricio",
+  "currentDate" : "08/12/23",
+  "currentHour" : "23:53:00",
+  "adminUsername" : "Paulo",
+  "message" : "Ocorreu a falha {usuário já cadastrado} ao realizar a operação {adicionar usuário} do contato Mauricio, (08/12/23, 23:53:00, e Paulo)",
+  "operation" : "adicionar usuário"
 } ]
